@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Layout with Grid & Flexbox</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    header {
+      background: #2c3e50;
+      color: #fff;
+      padding: 1rem;
+    }
+
+    /* Flexbox Navigation */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #f39c12;
+    }
+
+    /* Grid Layout for Main Content */
+    .container {
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    main {
+      background: #ecf0f1;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    aside {
+      background: #bdc3c7;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    footer {
+      background: #2c3e50;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 20px;
+    }
+
+    /* Flexbox Cards */
+    .cards {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .card {
+      flex: 1 1 200px;
+      background: #fff;
+      padding: 15px;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Media Queries */
+    @media (max-width: 1024px) {
+      .container {
+        grid-template-columns: 2fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+      nav {
+        justify-content: space-around;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+      .cards {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>My Responsive Webpage</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <main>
+      <h2>Main Content</h2>
+      <p>
+        This is the main content area. It expands based on screen size and works well
+        with the sidebar. On smaller screens, the layout stacks vertically.
+      </p>
+
+      <div class="cards">
+        <div class="card">
+          <h3>Card One</h3>
+          <p>Some text inside this card.</p>
+        </div>
+        <div class="card">
+          <h3>Card Two</h3>
+          <p>Another piece of text inside this card.</p>
+        </div>
+        <div class="card">
+          <h3>Card Three</h3>
+          <p>Even more text in this third card.</p>
+        </div>
+      </div>
+    </main>
+
+    <aside>
+      <h2>Sidebar</h2>
+      <p>
+        This is the sidebar area, which appears next to the main content on larger
+        screens and moves below on smaller devices.
+      </p>
+    </aside>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 My Responsive Website. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
